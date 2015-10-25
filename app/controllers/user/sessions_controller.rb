@@ -7,7 +7,7 @@ class User::SessionsController < Devise::SessionsController
       if resource.valid_password?(params[:password])
         sign_in :user, resource
 
-        render status: :ok, json: resource.player
+        render status: :ok, json: resource
       else
         render status: :forbidden, string: "Error" #nothing: true
       end

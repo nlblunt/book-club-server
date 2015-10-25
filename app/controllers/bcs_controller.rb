@@ -9,6 +9,14 @@ class BcsController < ApplicationController
         end
     end
     
+    def user_check
+       if user_signed_in?
+           render status: :ok, json: current_user
+       else
+           render status: :forbidden, nothing: true
+       end
+    end
+    
     def user_params
         params.require(:user).permit(:email, :username, :password, :password_confirmation)
     end

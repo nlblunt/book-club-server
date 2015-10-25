@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: "users/sessions"}
   
   get 'bcs/create_user' => "pcs#create_user"
-  
+  get 'bcs/user_check' => "pcs#user_check"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
