@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
      ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
     '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
@@ -22,3 +23,7 @@ The Cloud9 IDE team
 
 Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
 To watch some training videos, visit http://www.youtube.com/user/c9ide
+=======
+# book-club-server
+Ruby on Rails Server for Book Club
+>>>>>>> 1c9e378e34177c3a5289f4505f40bada746aa8cd
