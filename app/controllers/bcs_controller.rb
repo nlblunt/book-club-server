@@ -13,8 +13,7 @@ class BcsController < ApplicationController
        if user_signed_in?
            render status: :ok, json: current_user
        else
-           #render status: :forbidden, nothing: true
-           render status: :ok, nothing: true
+           render status: :forbidden, nothing: true
        end
     end
     

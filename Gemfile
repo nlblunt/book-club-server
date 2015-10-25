@@ -30,6 +30,7 @@ group :production do
   gem 'rails_12factor'
   gem 'prerender_rails'
   gem 'rack-cors', :require => 'rack/cors'
+  gem 'figaro'
 end
 
 group :test do 
