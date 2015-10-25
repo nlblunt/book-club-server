@@ -57,6 +57,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  
+  get root => redirect('http://bookclub.rubywebs.net/projectindexjs.php')
   get '/*path' => redirect('http://bookclub.rubywebs.net/projectindexjs.php')
 end
