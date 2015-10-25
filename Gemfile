@@ -29,6 +29,7 @@ group :production do
   gem 'aws-sdk', '<2.0'
   gem 'rails_12factor'
   gem 'prerender_rails'
+  gem 'rack-cors', :require => 'rack/cors'
 end
 
 group :test do 
