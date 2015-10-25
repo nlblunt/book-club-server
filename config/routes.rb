@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: "users/sessions"}
   
-  get 'bcs/create_user' => "pcs#create_user"
-  get 'bcs/user_check' => "pcs#user_check"
+  get 'create_user' => "bcs#create_user"
+  get 'user_check' => "bcs#user_check"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -57,4 +57,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  get '/*path' => redirect('http://bookclub.rubywebs.net/projectindexjs.php')
 end
