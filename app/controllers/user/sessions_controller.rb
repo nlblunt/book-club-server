@@ -9,10 +9,10 @@ class User::SessionsController < Devise::SessionsController
 
         render status: :ok, json: resource
       else
-        render status: :forbidden, string: "Error" #nothing: true
+        render status: :forbidden, string: "Invalid Password" #nothing: true
       end
     else
-      render status: :forbidden, nothing: true
+      render status: :forbidden, string: "Invalid Username"
     end
   end
 # before_filter :configure_sign_in_params, only: [:create]
