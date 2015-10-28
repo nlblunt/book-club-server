@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: "user/sessions"}
   
+  get 'status_check' => "bcs#status_check"
   get 'create_user' => "bcs#create_user"
   get 'user_check' => "bcs#user_check"
   # The priority is based upon order of creation: first created -> highest priority.
