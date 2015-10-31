@@ -1,6 +1,6 @@
 class BcsController < ApplicationController
     def status_check
-        render status: :ok, nothing: true
+        render :nothing => true, status: :ok
     end
     
     def create_user

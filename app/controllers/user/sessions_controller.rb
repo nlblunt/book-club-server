@@ -1,7 +1,9 @@
 class User::SessionsController < Devise::SessionsController
   
   def create
+    print params
     resource = User.find_by_username(params[:username])
+    print resource
     
     if resource != nil
       if resource.valid_password?(params[:password])
