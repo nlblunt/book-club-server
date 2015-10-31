@@ -11,7 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024034718) do
+ActiveRecord::Schema.define(version: 20151031061727) do
+
+  create_table "books", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "author"
+    t.string   "cover"
+    t.integer  "pages"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "bookshelves", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "bookshelves", ["user_id"], name: "index_bookshelves_on_user_id"
+
+  create_table "shelfitems", id: false, force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "bookshelf_id"
+    t.integer "page",         default: 0
+    t.boolean "finished",     default: false
+  end
+
+  add_index "shelfitems", ["book_id"], name: "index_shelfitems_on_book_id"
+  add_index "shelfitems", ["bookshelf_id"], name: "index_shelfitems_on_bookshelf_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
