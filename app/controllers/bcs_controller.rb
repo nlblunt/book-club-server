@@ -3,6 +3,7 @@ class BcsController < ApplicationController
         render :nothing => true, status: :ok
     end
     
+    #Create a new user
     def create_user
         user = User.create(user_params)
         
@@ -13,6 +14,7 @@ class BcsController < ApplicationController
         end
     end
     
+    #Check to see if user is signed in
     def user_check
        if user_signed_in?
            render status: :ok, json: current_user
@@ -23,7 +25,13 @@ class BcsController < ApplicationController
     
     #Create a book from Google Books API
     def create_book
-            
+        book = Book.create(book_params)
+        
+        if book.valid?
+            render json: {msg: "Successfully created " + book.title}, :status => :created
+        else
+            render json: {e:"Error creating book"}, :status => :error
+        end
     end
     
     def user_params

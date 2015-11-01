@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'status_check' => "bcs#status_check"
   get 'create_user' => "bcs#create_user"
   get 'user_check' => "bcs#user_check"
+  
+  ##BOOKS##
+  post 'create_book' => "bcs#create_book"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
