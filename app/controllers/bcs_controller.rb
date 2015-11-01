@@ -21,7 +21,16 @@ class BcsController < ApplicationController
        end
     end
     
+    #Create a book from Google Books API
+    def create_book
+            
+    end
+    
     def user_params
         params.require(:user).permit(:email, :username, :password, :password_confirmation)
+    end
+    
+    def book_params
+        params.require(:book).permit(:title, :author, :description, :cover, :pages, :google_id)
     end
 end

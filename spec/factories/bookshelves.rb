@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :bookshelf do
-    name "MyString"
-description "MyText"
-user nil
+    name "Fantasy"
+    description "Fantasy Books"
+    user nil
   end
 
 end

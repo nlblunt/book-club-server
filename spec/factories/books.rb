@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :book do
-    title "MyString"
-description "MyText"
-author "MyString"
-cover "MyString"
+    title "Harry Potter"
+    description "The Boy Who Lived"
+    author "JK"
+    cover "http://img.sample.com"
+    pages 100
   end
-
 end
