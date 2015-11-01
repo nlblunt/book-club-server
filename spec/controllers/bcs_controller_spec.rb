@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe BcsController, type: :controller do
     describe "Create Book" do
        it "With Required params Adds a book" do
-           post :create_book, {book:{title: "Harry Potter", author: "JK", description: "Some Book"}}
+           post :create_book, {book:{title: "Harry Potter", author: "JK", description: "Some Book", google_id: "AAA1"}}
            
            resp = JSON.parse(response.body)
            expect(response.status).to eq(201)
@@ -13,7 +13,7 @@ RSpec.describe BcsController, type: :controller do
        end
        
        it "With no TITLE Fails" do
-           post :create_book, {book:{title: nil, author: "JK", description: "Some Book"}}
+           post :create_book, {book:{title: nil, author: "JK", description: "Some Book", google_id: "AAA1"}}
            
            resp = JSON.parse(response.body)
            expect(response.status).to eq(500)
@@ -22,7 +22,16 @@ RSpec.describe BcsController, type: :controller do
        end
        
        it "With no AUTHOR Fails" do
-           post :create_book, {book:{title: "Harry Potter", author: nil, description: "Some Book"}}
+           post :create_book, {book:{title: "Harry Potter", author: nil, description: "Some Book", google_id: "AAA1"}}
+           
+           resp = JSON.parse(response.body)
+           expect(response.status).to eq(500)
+           
+           expect(resp['e']).to eq("Error creating book")
+       end
+       
+       it "With no GOOGLE_ID Fails" do
+           post :create_book, {book:{title: "Harry Potter", author: "JK", description: "Some Book", google_id: nil}}
            
            resp = JSON.parse(response.body)
            expect(response.status).to eq(500)

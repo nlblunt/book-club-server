@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20151031061727) do
 
   create_table "books", force: :cascade do |t|
+    t.string   "google_id"
     t.string   "title"
     t.text     "description"
     t.string   "author"
