@@ -5,5 +5,6 @@ FactoryGirl.define do
     author "JK"
     cover "http://img.sample.com"
     pages 100
+    google_id "AAA1"
   end
 end

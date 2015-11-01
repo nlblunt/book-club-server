@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   ##BOOKS##
   post 'create_book' => "bcs#create_book"
+  get 'list_books' => "bcs#list_books"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

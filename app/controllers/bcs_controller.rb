@@ -34,6 +34,17 @@ class BcsController < ApplicationController
         end
     end
     
+    #Return a list books added to bcs
+    def list_books
+        books = Book.all
+        
+        if books.count > 0
+            render json: books
+        else
+            render json: {e:"No books added"}, :status => :error
+        end
+    end
+    
     def user_params
         params.require(:user).permit(:email, :username, :password, :password_confirmation)
     end
