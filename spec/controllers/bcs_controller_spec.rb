@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe BcsController, type: :controller do
     describe "POST Create Book" do
        it "With Required params Adds a book" do
-           post :create_book, {book:{title: "Harry Potter", author: "JK", description: "Some Book", google_id: "AAA1"}}
+           post :add_book_google, {book:{title: "Harry Potter", author: "JK", description: "Some Book", google_id: "AAA1"}}
            
            resp = JSON.parse(response.body)
            expect(response.status).to eq(201)
@@ -13,7 +13,7 @@ RSpec.describe BcsController, type: :controller do
        end
        
        it "With no TITLE Fails" do
-           post :create_book, {book:{title: nil, author: "JK", description: "Some Book", google_id: "AAA1"}}
+           post :add_book_google, {book:{title: nil, author: "JK", description: "Some Book", google_id: "AAA1"}}
            
            resp = JSON.parse(response.body)
            expect(response.status).to eq(500)
@@ -22,7 +22,7 @@ RSpec.describe BcsController, type: :controller do
        end
        
        it "With no AUTHOR Fails" do
-           post :create_book, {book:{title: "Harry Potter", author: nil, description: "Some Book", google_id: "AAA1"}}
+           post :add_book_google, {book:{title: "Harry Potter", author: nil, description: "Some Book", google_id: "AAA1"}}
            
            resp = JSON.parse(response.body)
            expect(response.status).to eq(500)
@@ -31,7 +31,7 @@ RSpec.describe BcsController, type: :controller do
        end
        
        it "With no GOOGLE_ID Fails" do
-           post :create_book, {book:{title: "Harry Potter", author: "JK", description: "Some Book", google_id: nil}}
+           post :add_book_google, {book:{title: "Harry Potter", author: "JK", description: "Some Book", google_id: nil}}
            
            resp = JSON.parse(response.body)
            expect(response.status).to eq(500)
@@ -54,6 +54,12 @@ RSpec.describe BcsController, type: :controller do
           expect(resp.count).to eq(3)
           expect(resp[0]['title']).to eq("HP1")
           expect(resp[2]['title']).to eq("HP3")
+       end
+    end
+    
+    describe "POST add_book_to_user_shelf" do
+       it "Adds a book to 'Default' shelf" do
+           
        end
     end
 end

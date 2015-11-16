@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'user_check' => "bcs#user_check"
   
   ##BOOKS##
-  post 'create_book' => "bcs#create_book"
+  post 'add_book_google' => "bcs#add_book_google"
   get 'list_books' => "bcs#list_books"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -62,6 +62,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  get '/' => redirect('http://bookclub.rubywebs.net/projectindexjs.php')
-  get '/*path' => redirect('http://bookclub.rubywebs.net/projectindexjs.php')
+  get '/' => redirect('http://bookclub.rubywebs.net/')
+  get '/*path' => redirect('http://bookclub.rubywebs.net/')
 end
