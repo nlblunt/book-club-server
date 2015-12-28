@@ -11,7 +11,7 @@ class CreateBooks < ActiveRecord::Migration
       t.timestamps null: false
     end
     
-    create_table :shelfitems, id: false do |t|
+    create_table :shelfitems do |t|
       t.belongs_to :book, index: true
       t.belongs_to :bookshelf, index: true
       t.integer    :page, default: 0

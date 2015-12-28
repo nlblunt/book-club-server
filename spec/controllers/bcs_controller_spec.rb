@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe BcsController, type: :controller do
+    before :each do
+        user = FactoryGirl.create(:user)
+        user.bookshelves.create(name: "Default", description: "Default Bookshelf")
+    end
+    
     describe "POST Create Book" do
        it "With Required params Adds a book" do
            post :add_book_google, {book:{title: "Harry Potter", author: "JK", description: "Some Book", google_id: "AAA1"}}
@@ -57,8 +62,15 @@ RSpec.describe BcsController, type: :controller do
        end
     end
     
-    describe "POST add_book_to_user_shelf" do
-       it "Adds a book to 'Default' shelf" do
+    describe "POST add_book_google" do
+       it "Adds a google book to server library" do
+           post :add_book_google, {user_id: 1, book:{title: "Harry Potter", author: "JK", description: "Some Book", google_id: "X1234"}}
+           
+           resp = JSON.parse(response.body)
+           expect(response.status).to eq(200)
+       end
+       
+       it "Adds the book to users 'default' bookshelf" do
            
        end
     end

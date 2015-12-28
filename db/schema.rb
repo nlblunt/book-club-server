@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031061727) do
+ActiveRecord::Schema.define(version: 20151209043601) do
 
   create_table "books", force: :cascade do |t|
     t.string   "google_id"
@@ -34,7 +34,19 @@ ActiveRecord::Schema.define(version: 20151031061727) do
 
   add_index "bookshelves", ["user_id"], name: "index_bookshelves_on_user_id"
 
-  create_table "shelfitems", id: false, force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "posts", ["book_id"], name: "index_posts_on_book_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "shelfitems", force: :cascade do |t|
     t.integer "book_id"
     t.integer "bookshelf_id"
     t.integer "page",         default: 0

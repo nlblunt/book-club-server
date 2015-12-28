@@ -7,7 +7,13 @@ Rails.application.routes.draw do
   
   ##BOOKS##
   post 'add_book_google' => "bcs#add_book_google"
+  post 'add_book_server' => "bcs#add_book_server"
   get 'list_books' => "bcs#list_books"
+  post 'get_user_books' => "bcs#get_user_books"
+  post 'get_current_books' => "bcs#get_current_books"
+  get 'get_book_forum' => "bcs#get_book_forum"
+  post 'add_post' => "bcs#add_post"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
